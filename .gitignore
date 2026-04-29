@@ -1,0 +1,26 @@
+# Local documentation and internal notes
+doc/
+agent.md
+
+# Local tool/runtime artifacts
+.playwright-mcp/
+server.*.log
+*.log
+
+# Temporary and backup files
+*.backup_*.html
+*.bak
+*.tmp
+tmp_*.txt
+nav1.html
+nav2.html
+
+# Source design files not required by the deployed site
+*.ai
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
