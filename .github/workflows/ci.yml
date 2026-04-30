@@ -1,0 +1,118 @@
+name: Static Site CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check static site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f index.html
+          test -d pages
+          test -d assets
+          test -f assets/css/common.css
+          test -f assets/js/common.js
+
+      - name: Check for merge conflict markers
+        run: |
+          if grep -RInE '^(<<<<<<<|=======|>>>>>>>)' -- . --exclude-dir=.git; then
+            echo "Merge conflict markers found."
+            exit 1
+          fi
+
+      - name: Check local links and assets
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import unquote, urlparse
+          import re
+          import sys
+
+          root = Path.cwd()
+          html_attrs = {"href", "src", "poster", "data-src"}
+          css_url = re.compile(r"url\((['\"]?)(.*?)\1\)")
+          ignored_schemes = {
+              "http", "https", "mailto", "tel", "javascript",
+              "data", "blob", "sms", "weixin"
+          }
+          missing = []
+
+          def should_skip(value):
+              value = (value or "").strip()
+              if not value or value == "#" or value.startswith("#"):
+                  return True
+              parsed = urlparse(value)
+              return parsed.scheme.lower() in ignored_schemes or value.startswith("//")
+
+          def resolve_reference(base_file, value):
+              parsed = urlparse(value.strip())
+              path = unquote(parsed.path)
+              if not path:
+                  return None
+              if path.startswith("/"):
+                  target = root / path.lstrip("/")
+              else:
+                  target = base_file.parent / path
+              if str(target).endswith(("/", "\\")):
+                  target = target / "index.html"
+              return target.resolve()
+
+          def record_if_missing(base_file, value):
+              if should_skip(value):
+                  return
+              target = resolve_reference(base_file, value)
+              if target is None:
+                  return
+              try:
+                  target.relative_to(root)
+              except ValueError:
+                  missing.append((base_file, value, "outside repository"))
+                  return
+              if not target.exists():
+                  missing.append((base_file, value, str(target.relative_to(root))))
+
+          class LinkParser(HTMLParser):
+              def __init__(self, file_path):
+                  super().__init__()
+                  self.file_path = file_path
+
+              def handle_starttag(self, tag, attrs):
+                  for name, value in attrs:
+                      if name in html_attrs:
+                          record_if_missing(self.file_path, value)
+                      if name == "style" and value:
+                          for match in css_url.finditer(value):
+                              record_if_missing(self.file_path, match.group(2))
+
+          html_files = [root / "index.html", *sorted((root / "pages").glob("**/*.html"))]
+          for html_file in html_files:
+              parser = LinkParser(html_file)
+              parser.feed(html_file.read_text(encoding="utf-8", errors="ignore"))
+
+          for css_file in sorted(root.glob("assets/**/*.css")):
+              text = css_file.read_text(encoding="utf-8", errors="ignore")
+              for match in css_url.finditer(text):
+                  record_if_missing(css_file, match.group(2))
+
+          if missing:
+              print("Missing local links or assets:")
+              for base_file, original, detail in missing:
+                  print(f"- {base_file.relative_to(root)} -> {original} ({detail})")
+              sys.exit(1)
+
+          print("All local links and assets exist.")
+          PY
