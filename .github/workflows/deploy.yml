@@ -1,0 +1,45 @@
+name: Deploy Static Site
+
+on:
+  workflow_run:
+    workflows: [Static Site CI]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-static-site
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: easingthemes/ssh-deploy@v5.1.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          REMOTE_PORT: 22
+          SOURCE: ./
+          TARGET: /var/www/dakang/supplyChain/
+          ARGS: >-
+            -rlgoDzvc
+            --delete
+            --exclude=.git
+            --exclude=.github
+            --exclude=doc
+            --exclude=agent.md
+            --exclude=README.md
+            --exclude=server.err.log
+            --exclude=server.out.log
+            --exclude=tmp_nav.txt
