@@ -26,11 +26,10 @@ body {
 }
 
 .site-nav-logo {
-  width: 36px;
+  width: 72px;
   height: 36px;
   object-fit: contain;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, .82);
+  border-radius: 8px;
 }
 
 nav a[href$="about_us.html"] {
