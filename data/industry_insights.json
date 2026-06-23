@@ -1,0 +1,45 @@
+{
+  "featured": {
+    "badge": "深度解析",
+    "title": "什么是智能供应链",
+    "author": "达康研究院",
+    "readTime": "阅读时间 8 分钟",
+    "image": "../assets/images/remote/remote-18.jpg",
+    "imageAlt": "Modern high-tech warehouse with automated robots and bright lighting",
+    "summaryLabel": "AI 智能摘要",
+    "summaryIcon": "psychology",
+    "summary": "智能供应链不只是数字化，而是通过 AI 实现从预测性维护到自主补货的端到端决策优化。本文解析了其核心架构及其在不确定市场中的韧性价值。"
+  },
+  "secondary": [
+    {
+      "category": "数字化转型",
+      "title": "食材供应链如何数字化",
+      "image": "../assets/images/remote/remote-13.jpg",
+      "imageAlt": "Fresh vegetables being processed in a clean high-tech facility",
+      "summaryTheme": "tertiary",
+      "summaryIcon": "summarize",
+      "summaryLabel": "AI 摘要",
+      "summary": "通过物联网传感器追踪冷链全流程，减少损耗率至 3% 以下，重塑食材配送信任基石。"
+    },
+    {
+      "category": "区域洞察",
+      "title": "南宁供应链企业洞察",
+      "image": "../assets/images/remote/remote-20.jpg",
+      "imageAlt": "Nanning city aerial view with business district and logistics hubs",
+      "summaryTheme": "secondary",
+      "summaryIcon": "location_on",
+      "summaryLabel": "GEO 聚焦",
+      "summary": "南宁作为中国—东盟开放合作的前沿，其供应链布局正从传统商贸向跨境智慧物流加速演进。"
+    },
+    {
+      "category": "政企服务",
+      "title": "政企食堂配送管理指南",
+      "image": "../assets/images/remote/remote-07.jpg",
+      "imageAlt": "Professional office cafeteria or professional distribution center",
+      "summaryTheme": "primary",
+      "summaryIcon": "verified",
+      "summaryLabel": "管理准则",
+      "summary": "标准化、可追溯、安全优先。解析政企食堂如何在保持成本最优的同时，确保食材配送的高品质。"
+    }
+  ]
+}

@@ -96,6 +96,7 @@
           placeholder="搜索洞察内容..." type="text" />
       </div>
     </div>
+    <!-- build:industry-insights:start -->
     <!-- Bento Grid Insights -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
       <!-- Featured Article -->
@@ -120,8 +121,7 @@
             <span class="material-symbols-outlined material-symbols-filled text-primary">psychology</span>
             <div>
               <p class="text-xs font-bold text-primary uppercase tracking-widest mb-1">AI 智能摘要</p>
-              <p class="text-on-surface-variant leading-relaxed italic">"智能供应链不只是数字化，而是通过 AI
-                实现从预测性维护到自主补货的端到端决策优化。本文解析了其核心架构及其在不确定市场中的韧性价值。"</p>
+              <p class="text-on-surface-variant leading-relaxed italic">"智能供应链不只是数字化，而是通过 AI 实现从预测性维护到自主补货的端到端决策优化。本文解析了其核心架构及其在不确定市场中的韧性价值。"</p>
             </div>
           </div>
           <button class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group">
@@ -132,74 +132,72 @@
       </article>
       <!-- Secondary Articles Column -->
       <div class="md:col-span-4 flex flex-col gap-8">
-        <!-- Card 2 -->
-        <article
-          class="bg-surface-container-lowest p-6 rounded-3xl hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10">
-          <div class="flex gap-4 mb-4">
-            <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-high">
-              <img class="w-full h-full object-cover"
-                data-alt="Fresh vegetables being processed in a clean high-tech facility"
-                src="../assets/images/remote/remote-13.jpg" />
-            </div>
-            <div>
-              <span class="text-[10px] font-bold text-tertiary uppercase tracking-tighter">数字化转型</span>
-              <h3 class="font-bold text-lg leading-tight mt-1">食材供应链如何数字化</h3>
-            </div>
-          </div>
-          <div class="bg-tertiary-fixed/30 p-4 rounded-xl">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="material-symbols-outlined text-[14px] text-tertiary">summarize</span>
-              <span class="text-[10px] font-bold text-tertiary uppercase">AI 摘要</span>
-            </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2">通过物联网传感器追踪冷链全流程，减少损耗率至 3% 以下，重塑食材配送信任基石。</p>
-          </div>
-        </article>
-        <!-- Card 3 -->
-        <article
-          class="bg-surface-container-lowest p-6 rounded-3xl hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10">
-          <div class="flex gap-4 mb-4">
-            <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-high">
-              <img class="w-full h-full object-cover"
-                data-alt="Nanning city aerial view with business district and logistics hubs"
-                src="../assets/images/remote/remote-20.jpg" />
-            </div>
-            <div>
-              <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">区域洞察</span>
-              <h3 class="font-bold text-lg leading-tight mt-1">南宁供应链企业洞察</h3>
-            </div>
-          </div>
-          <div class="bg-secondary-fixed/30 p-4 rounded-xl">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
-              <span class="text-[10px] font-bold text-secondary uppercase">GEO 聚焦</span>
-            </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2">南宁作为中国—东盟开放合作的前沿，其供应链布局正从传统商贸向跨境智慧物流加速演进。</p>
-          </div>
-        </article>
-        <!-- Card 4 -->
-        <article
-          class="bg-surface-container-lowest p-6 rounded-3xl hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10">
-          <div class="flex gap-4 mb-4">
-            <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-high">
-              <img class="w-full h-full object-cover"
-                data-alt="Professional office cafeteria or professional distribution center"
-                src="../assets/images/remote/remote-07.jpg" />
-            </div>
-            <div>
-              <span class="text-[10px] font-bold text-primary uppercase tracking-tighter">政企服务</span>
-              <h3 class="font-bold text-lg leading-tight mt-1">政企食堂配送管理指南</h3>
-            </div>
-          </div>
-          <div class="bg-primary-fixed/30 p-4 rounded-xl">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="material-symbols-outlined text-[14px] text-primary">verified</span>
-              <span class="text-[10px] font-bold text-primary uppercase">管理准则</span>
-            </div>
-            <p class="text-xs text-on-surface-variant line-clamp-2">标准化、可追溯、安全优先。解析政企食堂如何在保持成本最优的同时，确保食材配送的高品质。</p>
-          </div>
-        </article>
+            <article
+      class="bg-surface-container-lowest p-6 rounded-3xl hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10">
+      <div class="flex gap-4 mb-4">
+        <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-high">
+          <img class="w-full h-full object-cover"
+            data-alt="Fresh vegetables being processed in a clean high-tech facility"
+            src="../assets/images/remote/remote-13.jpg" />
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-tertiary uppercase tracking-tighter">数字化转型</span>
+          <h3 class="font-bold text-lg leading-tight mt-1">食材供应链如何数字化</h3>
+        </div>
+      </div>
+      <div class="bg-tertiary-fixed/30 p-4 rounded-xl">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="material-symbols-outlined text-[14px] text-tertiary">summarize</span>
+          <span class="text-[10px] font-bold text-tertiary uppercase">AI 摘要</span>
+        </div>
+        <p class="text-xs text-on-surface-variant line-clamp-2">通过物联网传感器追踪冷链全流程，减少损耗率至 3% 以下，重塑食材配送信任基石。</p>
+      </div>
+    </article>
+            <article
+      class="bg-surface-container-lowest p-6 rounded-3xl hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10">
+      <div class="flex gap-4 mb-4">
+        <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-high">
+          <img class="w-full h-full object-cover"
+            data-alt="Nanning city aerial view with business district and logistics hubs"
+            src="../assets/images/remote/remote-20.jpg" />
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">区域洞察</span>
+          <h3 class="font-bold text-lg leading-tight mt-1">南宁供应链企业洞察</h3>
+        </div>
+      </div>
+      <div class="bg-secondary-fixed/30 p-4 rounded-xl">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>
+          <span class="text-[10px] font-bold text-secondary uppercase">GEO 聚焦</span>
+        </div>
+        <p class="text-xs text-on-surface-variant line-clamp-2">南宁作为中国—东盟开放合作的前沿，其供应链布局正从传统商贸向跨境智慧物流加速演进。</p>
+      </div>
+    </article>
+            <article
+      class="bg-surface-container-lowest p-6 rounded-3xl hover:bg-surface-container transition-colors cursor-pointer border border-outline-variant/10">
+      <div class="flex gap-4 mb-4">
+        <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-surface-container-high">
+          <img class="w-full h-full object-cover"
+            data-alt="Professional office cafeteria or professional distribution center"
+            src="../assets/images/remote/remote-07.jpg" />
+        </div>
+        <div>
+          <span class="text-[10px] font-bold text-primary uppercase tracking-tighter">政企服务</span>
+          <h3 class="font-bold text-lg leading-tight mt-1">政企食堂配送管理指南</h3>
+        </div>
+      </div>
+      <div class="bg-primary-fixed/30 p-4 rounded-xl">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+          <span class="text-[10px] font-bold text-primary uppercase">管理准则</span>
+        </div>
+        <p class="text-xs text-on-surface-variant line-clamp-2">标准化、可追溯、安全优先。解析政企食堂如何在保持成本最优的同时，确保食材配送的高品质。</p>
+      </div>
+    </article>
       </div>
     </div>
+    <!-- build:industry-insights:end -->
     <!-- Newsletter Section -->
     <section class="insights-newsletter mt-20 bg-primary text-white p-12 rounded-[2rem] relative overflow-hidden">
       <div class="relative z-10 max-w-xl">
@@ -256,7 +254,6 @@
 </body>
 
 </html>
-
 
 
 

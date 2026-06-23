@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "slug": "government",
+      "category": "政府机关案例",
+      "title": "南宁某大型政府机关食堂",
+      "painPointIcon": "report_problem",
+      "painPointTitle": "行业痛点",
+      "painPoint": "传统采购模式价格不透明，每日服务逾千人，导致人工核账极其繁琐且食品溯源困难。",
+      "solution": "部署AI智能比价系统与全流程数字化采集终端，实现从田间到餐桌的100%透明化追溯与自动化对账。",
+      "metricLabel": "量化价值",
+      "metricValue": "-30%",
+      "metricText": "综合采购成本",
+      "imageClass": "case-bg-government",
+      "imageAlt": "Modern government cafeteria interior with clean minimalist design",
+      "overlayBadgeLabel": "AI 实时监控",
+      "overlayBadgeValue": "100% 采购透明度",
+      "overlayBadgeIcon": "visibility",
+      "layout": "text-left"
+    },
+    {
+      "slug": "education",
+      "category": "教育机构案例",
+      "title": "广西重点示范中学",
+      "painPointIcon": "nutrition",
+      "painPointTitle": "行业痛点",
+      "painPoint": "面对3000名成长期学生的营养需求，学校急需科学配餐、稳定供应与严格的安全标准。",
+      "solution": "营养均衡AI分析引擎，根据青少年体质定制每日菜单，配合准时制（JIT）高效供应体系。",
+      "metricLabel": "服务规模",
+      "metricValue": "3000+",
+      "metricText": "在校师生受益",
+      "imageClass": "case-bg-education",
+      "imageAlt": "Professional school kitchen staff preparing nutritious meals",
+      "overlayTag": "重点示范中学合作项目",
+      "overlayTagIcon": "school",
+      "layout": "image-left"
+    },
+    {
+      "slug": "healthcare",
+      "category": "医疗卫生案例",
+      "title": "某三甲综合医院",
+      "painPointIcon": "thermostat",
+      "painPointTitle": "行业痛点",
+      "painPoint": "医疗环境对新鲜度要求极其严苛，传统冷链在末端配送环节温控波动大，风险极高。",
+      "solution": "精密温控冷链车队与IoT云监控平台，实现实时GPS+温度传感，支持异常订单秒级预警。",
+      "metricLabel": "冷链合规",
+      "metricValue": "100%",
+      "metricText": "全程温控达标率",
+      "imageClass": "case-bg-healthcare",
+      "imageAlt": "High-tech medical cold chain laboratory equipment",
+      "stats": [
+        { "label": "实时温度", "value": "2.4°C" },
+        { "label": "异常报警", "value": "0" }
+      ],
+      "layout": "text-left"
+    },
+    {
+      "slug": "catering",
+      "category": "连锁餐饮案例",
+      "title": "大型连锁餐饮集团",
+      "painPointIcon": "inventory_2",
+      "painPointTitle": "行业痛点",
+      "painPoint": "跨城数十家门店订单复杂，物流响应滞后，导致库存积压严重且食材损耗极高。",
+      "solution": "OMS全渠道订单中心与动态线路规划系统，通过算法精准预测并优化门店补货周期。",
+      "metricLabel": "效率提升",
+      "metricValue": "+40%",
+      "metricText": "终端配送效率",
+      "imageClass": "case-bg-catering",
+      "imageAlt": "Automated logistics distribution center with conveyor belts",
+      "centerIcon": "analytics",
+      "layout": "image-left"
+    }
+  ]
+}

@@ -23,6 +23,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate static content
+        run: node build.js
+
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@v5.1.0
         with:

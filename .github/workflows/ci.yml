@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate static content
+        run: node build.js
+
       - name: Check required files
         run: |
           test -f index.html
