@@ -64,6 +64,14 @@ function replaceFaqJsonLd(content, replacement) {
   return content.replace(pattern, `$1${replacement}$2`);
 }
 
+function replaceCommonProblemsJsonLd(content, replacement) {
+  const pattern = /(<script type="application\/ld\+json">\s*)(?:\{[\s\S]*?\})(\s*<\/script>\s*<\/body>)/m;
+  if (!pattern.test(content)) {
+    throw new Error('Common problems JSON-LD script block not found');
+  }
+  return content.replace(pattern, `$1${replacement}$2`);
+}
+
 function renderIndustryInsights() {
   const data = readJson('data/industry_insights.json');
   const featured = data.featured;
@@ -331,6 +339,26 @@ function renderCommonProblems() {
   );
 }
 
+function renderCommonProblemsJsonLd() {
+  const data = readJson('data/common_problems.json');
+  return JSON.stringify(
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: data.items.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer.replace(/\*\*/g, ''),
+        },
+      })),
+    },
+    null,
+    4
+  );
+}
+
 function renderSharedFaqCards() {
   const data = readJson('data/shared_faq.json');
   const cards = data.items
@@ -370,6 +398,10 @@ function updateSitemap(content) {
   return content.replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
 }
 
+function updateRobots() {
+  return `User-agent: *\nAllow: /\n\nSitemap: https://www.gxdksp.com/sitemap.xml\n`;
+}
+
 function buildFile(relativePath, transforms) {
   let content = readFile(relativePath);
   for (const transform of transforms) {
@@ -390,6 +422,7 @@ function main() {
 
   buildFile('pages/common_problems.html', [
     (content) => replaceBuildSection(content, 'common-problems', renderCommonProblems()),
+    (content) => replaceCommonProblemsJsonLd(content, renderCommonProblemsJsonLd()),
   ]);
 
   for (const file of ['index.html', 'pages/company_profile.html']) {
@@ -400,6 +433,7 @@ function main() {
   }
 
   buildFile('sitemap.xml', [updateSitemap]);
+  writeFile('robots.txt', updateRobots());
 }
 
 main();
