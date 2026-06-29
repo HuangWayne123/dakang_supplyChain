@@ -12,6 +12,16 @@
   },
   "secondary": [
     {
+      "category": "校园团餐",
+      "title": "学校食堂食材配送供应商怎么选",
+      "image": "../assets/images/uploads/content/insights/20260630-school-canteen-supplier.jpg",
+      "imageAlt": "Chinese school cafeteria staff receiving fresh produce delivery in Nanning",
+      "summaryTheme": "primary",
+      "summaryIcon": "school",
+      "summaryLabel": "采购建议",
+      "summary": "广西学校团餐选供应商，不应只看价格，更要看票证、冷链、追溯与高峰期保供能力。"
+    },
+    {
       "category": "数字化转型",
       "title": "食材供应链如何数字化",
       "image": "../assets/images/remote/remote-13.jpg",
